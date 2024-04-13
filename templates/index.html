@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<body xmlns="http://www.w3.org/1999/html">
+    <br>
+    <div class="container" style="text-align: center">
+        <h5 style="text-align: center; font-style: italic;">Upload your video up to 100 Mb and get story about randomly chosen frame</h5>
+    </div>
+    <br>
+    <div class="col-8 offset-md-2" style="background-color: #ededed; padding: 20px; border-radius: 10px">
+        <form method="POST" action="{{ url_for('frame') }}" enctype="multipart/form-data">
+{#            <div class="file-input" onclick="document.getElementById('videoFile').click();">#}
+                <input type="file" class="form-control" id="videoFile" name="file" accept="video/*">
+{#                <label>Choose video file</label>#}
+{#            </div>#}
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary w-100" style="background-color: #a1b2d9; color: blue;">Get random frame</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-secondary w-100" style="background-color: #afafaf; color: #3b3a3a;" onclick="clearChoice()">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br><br>
+    <div class="col-8 offset-md-2" style="background-color: #ededed; padding: 20px; border-radius: 10px">
+        <h3>Result</h3>
+        <br>
+        {% if path_to_frame %}
+        <img src="{{ path_to_frame }}" class="d-block w-100" alt="frame">
+        <br>
+        {% endif %}
+        <h6>Story:</h6>
+        <div class="container" style="background-color: #ffffff; padding: 20px; border-radius: 10px;">
+            Please wait. Story will appear in few minutes...
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}
