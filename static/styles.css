@@ -1,0 +1,21 @@
+.form-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; /* Измените высоту по вашему усмотрению */
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.file-input input[type=file] {
+    display: none;
+}
+.form-control label {
+    cursor: pointer;
+    text-align: center;
+    padding-top: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
